@@ -19,5 +19,6 @@ print "sending blah to 2"
 while True:
     if test.sendWithRetry(2, "blah", 3, 20):
         print "ack recieved"
+        time.sleep(1)
 print "shutting down"
 test.shutdown()

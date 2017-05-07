@@ -17,7 +17,7 @@ print "setting encryption"
 test.encrypt("kekusmaximus1997")
 print "sending blah to 2"
 while True:
-    if test.send(2, "blah", 3, 20):
+    if test.send(2, "blah", True):
         print "ack recieved"
         time.sleep(1)
 print "shutting down"

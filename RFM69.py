@@ -97,8 +97,6 @@ class RFM69(object):
         self.spi.open(self.spiBus, self.spiDevice)
         self.spi.max_speed_hz = 4000000
 
-        # Hard reset the RFM module
-
         #verify chip is syncing?
         while self.readReg(REG_SYNCVALUE1) != 0xAA:
             self.writeReg(REG_SYNCVALUE1, 0xAA)

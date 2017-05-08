@@ -19,7 +19,7 @@ print "setting encryption"
 test.encrypt("kekusmaximus1997")
 print "sending blah to 2"
 while True:
-    if test.send(2, "kekusmaximus1997"+ random.randint(1,1500), True):
+    if test.send(2, "kekusmaximus1997"+ str(random.randint(1,1500)), True):
         print "ack recieved"
         time.sleep(1)
     print "Sending Random"

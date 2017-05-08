@@ -22,6 +22,8 @@ while True:
     if test.send(2, "kekusmaximus1997"+ str(random.randint(1,1500)), True):
         print "ack recieved"
         time.sleep(1)
+    if test.ACKReceived(2);
+        print "ACK KEK"
     print "Sending Random"
 print "shutting down"
 test.shutdown()

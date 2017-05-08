@@ -43,11 +43,15 @@ class RFM69(object):
           #no shaping
           0x02: [REG_DATAMODUL, RF_DATAMODUL_DATAMODE_PACKET | RF_DATAMODUL_MODULATIONTYPE_FSK | RF_DATAMODUL_MODULATIONSHAPING_00],
           #default:4.8 KBPS
-          0x03: [REG_BITRATEMSB, RF_BITRATEMSB_55555],
-          0x04: [REG_BITRATELSB, RF_BITRATELSB_55555],
+          #0x03: [REG_BITRATEMSB, RF_BITRATEMSB_55555],
+          #0x04: [REG_BITRATELSB, RF_BITRATELSB_55555],
+          0x03: [REG_BITRATEMSB, 0x06],
+          0x04: [REG_BITRATELSB, 0x83],
           #default:5khz, (FDEV + BitRate/2 <= 500Khz)
-          0x05: [REG_FDEVMSB, RF_FDEVMSB_50000],
-          0x06: [REG_FDEVLSB, RF_FDEVLSB_50000],
+          #0x05: [REG_FDEVMSB, RF_FDEVMSB_50000],
+          #0x06: [REG_FDEVLSB, RF_FDEVLSB_50000],
+          0x05: [REG_FDEVMSB, 0x02],
+          0x06: [REG_FDEVLSB, 0x75],
 
           0x07: [REG_FRFMSB, frfMSB[freqBand]],
           0x08: [REG_FRFMID, frfMID[freqBand]],
@@ -64,7 +68,8 @@ class RFM69(object):
 
           # RXBW defaults are { REG_RXBW, RF_RXBW_DCCFREQ_010 | RF_RXBW_MANT_24 | RF_RXBW_EXP_5} (RxBw: 10.4khz)
           #//(BitRate < 2 * RxBw)
-          0x19: [REG_RXBW, RF_RXBW_DCCFREQ_010 | RF_RXBW_MANT_16 | RF_RXBW_EXP_2],
+          #0x19: [REG_RXBW, RF_RXBW_DCCFREQ_010 | RF_RXBW_MANT_16 | RF_RXBW_EXP_2],
+          0x19: [REG_RXBW, 0xf3],
           #for BR-19200: //* 0x19 */ { REG_RXBW, RF_RXBW_DCCFREQ_010 | RF_RXBW_MANT_24 | RF_RXBW_EXP_3 },
           #DIO0 is the only IRQ we're using
           0x25: [REG_DIOMAPPING1, RF_DIOMAPPING1_DIO0_01],
